@@ -3,17 +3,20 @@ $(document).ready(function () {
     e.preventDefault(); // Evita il comportamento di default del form
 
     let username = $("#username").val();
+    // console.log($("#username").val());
     let password = $("#password").val();
+    // console.log($("#password").val());
 
     $.ajax({
       type: "POST",
       url: "login.php",
       data: {
-        username: username,
-        password: password,
+        username,
+        password,
       },
-      success: function (response) {
-        if (response === "success") {
+      success: function (res) {
+        console.log(res);
+        if (res === "success") {
           $("#login-message").html("Accesso effettuato con successo.");
           redirectToPage("operators.php");
         } else {

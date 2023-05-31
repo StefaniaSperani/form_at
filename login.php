@@ -2,11 +2,22 @@
 session_start();
 
 // Includi il file di connessione al database
-include 'database.php';
+include("database.php");
 
-// Recupera i dati inviati dal form
+if (isset($_POST['username'])) {
+    $username = $_POST['username'];
+} else {
+    $username = "";
+}
 
-isset($_POST['username']) && isset($_POST['password']);
+if (isset($_POST['password'])) {
+    $password = $_POST['password'];
+} else {
+    $password = "";
+}
+
+
+$conn->close(); // Chiude la connessione al database
 
 ?>
 
@@ -33,14 +44,14 @@ isset($_POST['username']) && isset($_POST['password']);
         <form id="login-form" method="POST">
             <div class="mb-3">
                 <label for="username" class="form-label">User ID</label>
-                <input type="text" class="form-control" id="username" name="username">
+                <input type="text" class="form-control" id="username" name="username" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <button type="submit" class="btn btn-primary">Accedi</button>
-            <div id="login-message"></div>
+            <div id="login-message" class="mt-2"></div>
         </form>
     </div>
 
