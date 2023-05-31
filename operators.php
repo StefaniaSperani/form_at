@@ -13,26 +13,34 @@
 </head>
 
 <body>
-
-    <h2 class="text-uppercase text-center my-4">Elenco degli operatori</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Cognome</th>
-                <th scope="col">Mansione</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>prova</td>
-                <td>prova</td>
-                <td>prova</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="m-3">
+        <h2 class="text-uppercase text-center my-4">Elenco degli operatori</h2>
+        <button class="btn btn-primary mb-3"><a href="add.php">Aggiungi operatore</a></button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Cognome</th>
+                    <th scope="col">Mansione</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Stato</th>
+                    <th scope="col">Modifica</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>prova</td>
+                    <td>prova</td>
+                    <td>prova</td>
+                    <td>prova</td>
+                    <td>prova</td>
+                    <td><button class="btn btn-danger"><a href="edit.php">Modifica</a></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <!-- SCRIPT JS -->
     <!-- <script src="script.js"></script> -->

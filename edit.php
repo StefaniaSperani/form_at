@@ -14,7 +14,7 @@
 <body>
 
     <div class="app d-flex flex-column align-items-center py-4">
-        <h2 class="text-uppercase">Modifica i tuoi dati</h2>
+        <h2 class="text-uppercase">Modifica dati</h2>
         <form id="edit-form" method="post">
             <div class="mb-3">
                 <label for="lastname" class="form-label">Cognome</label>

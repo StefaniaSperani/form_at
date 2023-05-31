@@ -17,8 +17,8 @@ if (isset($_POST['submit'])) {
         header("Location: operators.php");
     } else {
         echo '<script>
-                        window.location.href = "index.php";
-                    </script>';
+            window.location.href = "index.php";
+            </script>';
     }
 }
 // $conn->close(); // Chiude la connessione al database
