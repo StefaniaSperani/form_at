@@ -1,63 +1,26 @@
 <?php
 session_start();
 
-// Includi il file di connessione al database
 include("database.php");
 
-if (isset($_POST['username'])) {
+if (isset($_POST['submit'])) {
     $username = $_POST['username'];
-} else {
-    $username = "";
-}
-
-if (isset($_POST['password'])) {
     $password = $_POST['password'];
-} else {
-    $password = "";
+
+
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $count = mysqli_num_rows($result);
+
+    if ($count == 1) {
+        header("Location: operators.php");
+    } else {
+        echo '<script>
+                        window.location.href = "index.php";
+                    </script>';
+    }
 }
-
-
-$conn->close(); // Chiude la connessione al database
+// $conn->close(); // Chiude la connessione al database
 
 ?>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Login</title>
-</head>
-
-<body>
-
-    <div class="app d-flex justify-content-center py-4">
-        <form id="login-form" method="POST">
-            <div class="mb-3">
-                <label for="username" class="form-label">User ID</label>
-                <input type="text" class="form-control" id="username" name="username" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Accedi</button>
-            <div id="login-message" class="mt-2"></div>
-        </form>
-    </div>
-
-
-    <!-- SCRIPT JS -->
-    <script src="script.js"></script>
-</body>
-
-</html>
