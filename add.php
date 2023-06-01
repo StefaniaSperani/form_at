@@ -19,6 +19,8 @@ if (isset($_POST['submit'])) {
         echo '<div class="text-center text-danger fs-3 mt-3"> Errore durante l\'aggiunta dell\'operatore: </div>' . $conn->error;
     }
 }
+
+$conn->close();
 ?>
 
 
