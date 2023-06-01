@@ -53,8 +53,15 @@ $conn->close();
                 <input type="text" class="form-control" id="lastname" name="cognome">
             </div>
             <div class="mb-3">
-                <label for="job" class="form-label">Mansione</label>
-                <input type="text" class="form-control" id="job" name="mansione">
+                <!-- <label for="job" class="form-label">Mansione</label>
+                <input type="text" class="form-control" id="job" name="mansione"> -->
+                <p>Mansione</p>
+                <select name="mansione">
+                    <option value="" selected>Scegli mansione</option>
+                    <option value="SuperAdmin">SuperAdmin</option>
+                    <option value="Amministratore">Amministratore</option>
+                    <option value="Impiegato">Impiegato</option>
+                </select>
             </div>
             <h4>Stato:</h4>
             <div class="form-check">
