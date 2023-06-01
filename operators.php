@@ -29,21 +29,33 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>prova</td>
-                    <td>prova</td>
-                    <td>prova</td>
-                    <td>prova</td>
-                    <td>prova</td>
-                    <td><button class="btn btn-danger"><a href="edit.php">Modifica</a></button></td>
-                </tr>
+                <?php
+                include("database.php");
+
+                $sql = "SELECT * FROM operators";
+                $result = mysqli_query($conn, $sql);
+
+                if (mysqli_num_rows($result) > 0) {
+                    // ciclo per stampare gli operatori
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<th scope='row'>" . (isset($row["id"]) ? $row["id"] : "") . "</th>";
+                        echo "<td>" . (isset($row["nome"]) ? $row["nome"] : "") . "</td>";
+                        echo "<td>" . (isset($row["cognome"]) ? $row["cognome"] : "") . "</td>";
+                        echo "<td>" . (isset($row["mansione"]) ? $row["mansione"] : "") . "</td>";
+                        echo "<td>" . (isset($row["username"]) ? $row["username"] : "") . "</td>";
+                        echo "<td>" . (isset($row["stato"]) ? $row["stato"] : "") . "</td>";
+                        echo "<td><button class='btn btn-danger'><a href='edit.php'>Modifica</a></button></td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='7'>Nessun risultato trovato.</td></tr>";
+                }
+                ?>
             </tbody>
         </table>
     </div>
 
-    <!-- SCRIPT JS -->
-    <!-- <script src="script.js"></script> -->
 </body>
 
 </html>
