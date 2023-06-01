@@ -45,7 +45,7 @@
                         echo "<td>" . (isset($row["mansione"]) ? $row["mansione"] : "") . "</td>";
                         echo "<td>" . (isset($row["username"]) ? $row["username"] : "") . "</td>";
                         echo "<td>" . (isset($row["stato"]) ? $row["stato"] : "") . "</td>";
-                        echo "<td><button class='btn btn-danger'><a href='edit.php?id=" . isset($id) . "'>Modifica</a></button></td>";
+                        echo "<td><button class='btn btn-danger'><a href='edit.php?editid=" . (isset($row["id"]) ? $row["id"] : "") . "'> Modifica </a> </button></td>";
                         echo "</tr>";
                     }
                 } else {
